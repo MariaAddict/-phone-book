@@ -2,12 +2,13 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import Header from '../Header/Header.jsx';
 import apiContact from '../../utils/apiContact';
+import Main from '../Main/Main';
 
 function App() {
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
-    const savedContacts = localStorage.getItem("contacts");
+    const savedContacts = JSON.parse(localStorage.getItem("contacts"));
 
     if (savedContacts) {
       setContacts(savedContacts);
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
+      <Main contacts={contacts}/>
     </div>
   );
 }
