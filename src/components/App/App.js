@@ -1,13 +1,22 @@
 import './App.css';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../Header/Header.jsx';
 import apiContact from '../../utils/apiContact';
 
 function App() {
+  const [contacts, setContacts] = useState([]);
+
   useEffect(() => {
-    apiContact.getContacts().then(data => {
-      console.log(data);
-    }).catch(err => console.log(err))
+    const savedContacts = localStorage.getItem("contacts");
+
+    if (savedContacts) {
+      setContacts(savedContacts);
+    } else {
+      apiContact.getContacts().then(receivedСontacts => {
+        setContacts(receivedСontacts);
+        localStorage.setItem("contacts", JSON.stringify(receivedСontacts));
+      }).catch(err => console.log(err))
+    }
   }, [])
 
   return (
