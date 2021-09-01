@@ -1,7 +1,11 @@
 import "./CardItem.css";
 import iconContact from "../../images/avatar.jpg";
 
-function CardItem({ card }) {
+function CardItem({ card, onClickEditButton }) {
+  const onClick = () => {
+    onClickEditButton(card);
+  };
+
   return (
     <li className="card">
       <img
@@ -10,14 +14,18 @@ function CardItem({ card }) {
         className="card__image"
       />
       <div className="card__description">
-        <p className="card__name">{card.favorite && <span>⭐</span>} {card.name}</p>
+        <p className="card__name">
+          {card.favorite && <span>⭐</span>} {card.name}
+        </p>
         <p>📞 {card.phone}</p>
         <p>🌐 {card.website}</p>
-        <p>💼 {card.company.name}</p> 
+        <p>💼 {card.company.name}</p>
         <p>🏠 {card.address.city}</p>
       </div>
-      
-      <button className="card__button">Edit</button>
+
+      <button className="card__button" onClick={onClick}>
+        Edit
+      </button>
     </li>
   );
 }

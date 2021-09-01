@@ -1,10 +1,10 @@
 import "./Main.css";
-import CardList from '../CardList/CardList';
+import CardList from "../CardList/CardList";
 
-function Main({contacts}) {
+function Main({ contacts, onClickEditButton }) {
   return (
     <main className="main">
-      <CardList contacts={contacts} />
+      <CardList contacts={contacts} onClickEditButton={onClickEditButton} />
     </main>
   );
 }
