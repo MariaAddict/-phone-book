@@ -18,9 +18,10 @@ function CardItem({ card, onClickEditButton }) {
           {card.favorite && <span>⭐</span>} {card.name}
         </p>
         <p>📞 {card.phone}</p>
+        <p>📧 {card.email}</p>
         <p>🌐 {card.website}</p>
-        <p>💼 {card.company.name}</p>
-        <p>🏠 {card.address.city}</p>
+        <p>💼 {card.company}</p>
+        <p>🏠 {card.city}</p>
       </div>
 
       <button className="card__button" onClick={onClick}>
