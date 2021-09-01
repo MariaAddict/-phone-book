@@ -14,6 +14,7 @@ function App() {
     company: "",
     city: "",
     id: "",
+    favorite: false,
   });
   const [isOpenModalEditContact, setIsOpenModalEditContact] = useState(false);
 
@@ -26,6 +27,7 @@ function App() {
       company: data.company.name,
       city: data.address.city,
       id: data.id,
+      favorite: data.favorite,
     });
   }
 
@@ -34,7 +36,7 @@ function App() {
       contactItem.id === contact.id ? contact : contactItem
     )
     setContacts(editedСontacts);
-    localStorage.setItem("contacts", JSON.stringify([contact, ...contacts]));
+    localStorage.setItem("contacts", JSON.stringify(editedСontacts));
     setIsOpenModalEditContact(false);
   }
 

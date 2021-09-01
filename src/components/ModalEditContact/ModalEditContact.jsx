@@ -9,6 +9,7 @@ function ModalEditContact({ isOpen, onClose, card, updateDataContact }) {
     company: "",
     city: "",
     id: "",
+    favorite: false,
   });
 
   useEffect(() => {
@@ -19,6 +20,7 @@ function ModalEditContact({ isOpen, onClose, card, updateDataContact }) {
       company: card.company,
       city: card.city,
       id: card.id,
+      favorite: card.favorite,
     });
   }, [card]);
 
@@ -43,6 +45,7 @@ function ModalEditContact({ isOpen, onClose, card, updateDataContact }) {
         city: dataContact.city,
       },
       id: dataContact.id,
+      favorite: dataContact.favorite,
     });
   }
 
